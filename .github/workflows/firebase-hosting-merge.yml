@@ -3,10 +3,12 @@
 
 name: CI and CD to FIrebase
 
-on: 
-  push: 
+name: CI and Deploy to Firebase Hosting
+
+on:
+  push:
     branches:
-      -main
+      - main
 
 jobs:
   ci:
@@ -14,9 +16,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checlout@v4
+        uses: actions/checkout@v4
 
-      - name: setup node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
@@ -25,7 +27,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npm test -- --coverage
+        run: npm test -- --coverag
 
 
   cd :
